@@ -18,8 +18,13 @@ public class BookController {
 
 	private static Logger logger = LoggerFactory.getLogger(BookController.class);
 
-	@Autowired
+
 	private BookRepository bookRepo;
+
+	@Autowired
+    public BookController(BookRepository bookRepo){
+		this.bookRepo = bookRepo;
+	}
 
 	@GetMapping("/")
 	public String displayForm(Model model) {
